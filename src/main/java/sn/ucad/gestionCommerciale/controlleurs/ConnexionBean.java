@@ -1,5 +1,7 @@
 package sn.ucad.gestionCommerciale.controlleurs;
 
+import java.io.IOException;
+
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -38,12 +40,12 @@ public class ConnexionBean {
         this.password = password;
     }
    
-    public void login() {
+    public void login() throws IOException {
         FacesMessage message = null;
         boolean loggedIn = false;
         Personne personne = personneDao.connexion(username, password);
-        System.out.println("Login : "+personne.getLogin()+ "\nPassword : "+personne.getMotPasse());
         if(personne != null) {
+        	FacesContext.getCurrentInstance().getExternalContext().redirect("pages/utilisateurs.xhtml");
             loggedIn = true;
             message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenu(e)", personne.getNom());
         } else {
