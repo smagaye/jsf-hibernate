@@ -18,7 +18,7 @@ import sn.ucad.gestionCommerciale.util.SpringUtil;
 @SessionScoped
 public class ConnexionBean {
 
-	private PersonneDao personneDao = (PersonneDaoImpl) SpringUtil.getBean("personneDao");
+	private static PersonneDao personneDao = (PersonneDaoImpl) SpringUtil.getBean("personneDao");
 	
 	private String username = "";
      

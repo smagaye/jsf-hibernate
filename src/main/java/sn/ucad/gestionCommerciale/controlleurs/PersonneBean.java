@@ -17,9 +17,7 @@ import sn.ucad.gestionCommerciale.util.SpringUtil;
 @SessionScoped
 public class PersonneBean {
 	
-	private PersonneDao personneDao = (PersonneDaoImpl) SpringUtil.getBean("personneDao");
-
-	List<Personne> personnes = null;
+	private static PersonneDao personneDao = (PersonneDaoImpl) SpringUtil.getBean("personneDao");
 
 	public List<Personne> personnesList() {
 		return personneDao.getPersonnes();
