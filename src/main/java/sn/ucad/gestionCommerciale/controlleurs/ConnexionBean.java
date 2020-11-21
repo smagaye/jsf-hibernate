@@ -46,14 +46,14 @@ public class ConnexionBean {
         Personne personne = personneDao.connexion(username, password);
         if(personne != null) {
         	FacesContext.getCurrentInstance().getExternalContext().redirect("pages/utilisateurs.xhtml");
-            loggedIn = true;
-            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenu(e)", personne.getNom());
+//            loggedIn = true;
+//            message = new FacesMessage(FacesMessage.SEVERITY_INFO, "Bienvenu(e)", personne.getNom());
         } else {
         	loggedIn = false;
             message = new FacesMessage(FacesMessage.SEVERITY_WARN, "Connexion Echouée!", "Nom d'utilisateur ou mot de passe incorrect!");
+            FacesContext.getCurrentInstance().addMessage(null, message);
+            PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
         }
          
-        FacesContext.getCurrentInstance().addMessage(null, message);
-        PrimeFaces.current().ajax().addCallbackParam("loggedIn", loggedIn);
     }   
 }

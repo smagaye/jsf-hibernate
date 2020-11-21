@@ -16,9 +16,7 @@ public class PersonneDaoImpl implements PersonneDao {
 	@Override
 	public List<Personne> getPersonnes() {
 		Session session = sessionFactory.openSession();
-
 		List<Personne> personsList = session.createQuery("from Personne").list();
-		System.out.println("Personnes : " + personsList.size());
 		return personsList;
 	}
 
