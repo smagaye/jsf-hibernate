@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class  mutable="true" name="sn.ucad.gestionCommerciale.modeles.Personne" optimistic-lock="version" schema="public" select-before-update="false" table="personne">
+        <id name="id" type="int">
+            <column name="id" length="40" />
+            <generator class="assigned" />
+        </id>
+            <property name="nom" type="string">
+                <column length="254" name="nom"/>
+            </property>
+            <property name="prenom" type="string">
+                <column length="254" name="prenom"/>
+            </property>
+            <property name="email" type="string">
+                <column length="254" name="email"/>
+            </property>
+            <property name="adesse" type="string">
+                <column length="254" name="adesse"/>
+            </property>
+            <property name="datenaissance" type="string">
+                <column length="254" name="datenaissance"/>
+            </property>
+            <property name="login" type="string">
+                <column length="254" name="login"/>
+            </property>
+            <property name="lieunaissance" type="string">
+                <column length="254" name="lieunaissance"/>
+            </property>
+            <property name="telephone" type="string">
+                <column length="254" name="telephone"/>
+            </property>
+            <property name="motPasse" type="string">
+                <column length="254" name="motPasse"/>
+            </property>
+    </class>
+</hibernate-mapping>
